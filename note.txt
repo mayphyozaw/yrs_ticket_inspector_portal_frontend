@@ -1,0 +1,36 @@
+Using V3.js for Frontend
+
+    Library => vant, pinia, axios;
+
+   whenevers api uses  => 1. state => to declare varible for using (response, error, errorMessage, errors)
+                          2. getters => to reuse the values from state, (getResponse, geterror, getErrorMessage, geterrors)
+                          3. actions => include method which is used from Frontend, (async get()) 
+
+
+
+            1. state() => ({
+                response: null, 
+                error: null,
+                errorMessage: null,
+                errors: [],
+             })
+            2. getters: {
+                getResponse: (state) => state.response,
+                getError: (state) => state.error,
+                getErrorMessage: (state) => state.errorMessage,
+                getErrors: (state) => state.errors, 
+              }
+            3. actions:{
+                async get()
+              }
+
+
+The difference between => export default axiosInstance ; and export { name };
+
+
+export default axiosInstance => When we write the import => import axiosInstance from "@/axiosInstance";
+
+
+in which  "axiosInstance" the name which can be changed as you like in import so, the name is not fixed.
+
+export { name }; => when you do not want to change the name , you can onlu use this name.
