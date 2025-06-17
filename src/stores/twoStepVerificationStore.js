@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import axiosInstance from "@/axiosInstance";
 
 
-export const useStationStore = defineStore("stationStore", {
+export const useTwoStepVerificationStore = defineStore("twoStepVerificationStore", {
   state: () => ({ 
     response: null, 
     error: null,
@@ -17,11 +17,13 @@ export const useStationStore = defineStore("stationStore", {
     getErrors: (state) => state.errors,
   },
   actions: {
-    async get(queryParameters){
+    async store(otp_token, code){
         try {
             
-            let response = await axiosInstance.get(`station`,{
-              params: queryParameters,
+            let response = await axiosInstance.post(`user-portal/two-step-verification`,{
+                otp_token: otp_token,
+                code: code,
+              
             });
             this.response = response.data ?? null;
             

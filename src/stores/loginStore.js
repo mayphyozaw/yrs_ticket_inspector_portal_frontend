@@ -1,8 +1,9 @@
+import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import axiosInstance from "@/axiosInstance";
 
 
-export const useStationDetailStore = defineStore("stationDetailStore", {
+export const useLoginStore = defineStore("loginStore", {
   state: () => ({ 
     response: null, 
     error: null,
@@ -16,12 +17,15 @@ export const useStationDetailStore = defineStore("stationDetailStore", {
     getErrors: (state) => state.errors,
   },
   actions: {
-    async get(slug){
+    async store(email, password){
         try {
             
-            let response = await axiosInstance.get(`station/${slug}`);
-
+            let response = await axiosInstance.post(`ticket-inspector-portal/login`,{
+              email: email,
+              password: password,
+            });
             this.response = response.data ?? null;
+            
             this.error = null;
             this.errorMessage = null;
             this.errors = [];

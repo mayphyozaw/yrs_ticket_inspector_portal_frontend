@@ -8,12 +8,10 @@
   
     <van-tabbar v-if="showTabBar" v-model="active" active-color="#1CBC9B">
       <van-tabbar-item icon="home-o" replace to="/">Home</van-tabbar-item>
-      <van-tabbar-item icon="exchange" replace to="/route"
-        >Route</van-tabbar-item
+      <van-tabbar-item icon="list-switch" replace to="/route"
+        >Ticket Inspection</van-tabbar-item
       >
-      <van-tabbar-item icon="shop-o" replace to="/station"
-        >Station</van-tabbar-item
-      >
+      
       <van-tabbar-item icon="contact-o" replace to="/profile"
         >Profile</van-tabbar-item
       >
@@ -39,11 +37,8 @@ watch(
       case "/":
         active.value = 0;
         break;
-      case "/route":
+      case "/ticket-inspection":
         active.value = 1;
-        break;
-      case "/station":
-        active.value = 2;
         break;
       case "/profile":
         active.value = 3;

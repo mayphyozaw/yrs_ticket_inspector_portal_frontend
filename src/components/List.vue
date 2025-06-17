@@ -36,7 +36,7 @@
           :error-text="errorMessage"
           @load="onLoad"
         >
-          <StationItem v-if="storeName == 'stationStore'" :list="list" />
+         
           <RouteItem v-if="storeName == 'routeStore'" :list="list" :query-parameters="props.queryParameters"/>
         </van-list>
       </div>
@@ -47,7 +47,6 @@
 <script setup>
 import { ref } from "vue";
 import { usestoreHelper } from "@/helplers/useStoreHelper";
-import StationItem from "./StationItem.vue";
 import RouteItem from "./RouteItem.vue";
 
 const props = defineProps({

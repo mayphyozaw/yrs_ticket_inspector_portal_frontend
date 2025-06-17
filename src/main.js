@@ -3,6 +3,7 @@ import "./assets/css/main.css";
 
 import { createApp } from "vue";
 import { createPinia } from "pinia";
+
 import {
   Tabbar,
   TabbarItem,
@@ -26,10 +27,21 @@ import {
   Field,
   Popup,
   Picker,
+  Form,
+  PasswordInput, 
+  NumberKeyboard,
+  Tag,
 } from "vant";
 
 import App from "./App.vue";
 import router from "./router";
+import SecureLS from "secure-ls";
+
+window.ls = new SecureLS({
+  encodingType: import.meta.env.VITE_LS_ENCODING_TYPE,
+  encryptionSecret: import.meta.env.VITE_LS_ENCRYPTION_SECRET,
+  metaKey: import.meta.env.VITE_LS_META_KEY,
+});
 
 const app = createApp(App);
 
@@ -56,6 +68,11 @@ app.use(Dialog);
 app.use(Field);
 app.use(Popup);
 app.use(Picker);
+app.use(Form);
+app.use(PasswordInput);
+app.use(NumberKeyboard);
+app.use(Tag);
+
 app.use(router);
 
 app.mount("#app");

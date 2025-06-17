@@ -1,16 +1,27 @@
 import axios from "axios";
 import { showNotify } from "vant";
+import SecureLS from "secure-ls";
+
+const ls = new SecureLS({
+  encodingType: import.meta.env.VITE_LS_ENCODING_TYPE,
+  encryptionSecret: import.meta.env.VITE_LS_ENCRYPTION_SECRET,
+  metaKey: import.meta.env.VITE_LS_META_KEY,
+});
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_END_POINT,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
+    Authorization: `Bearer ${ls.get("__access-token")}`,
   },
 });
 
 axiosInstance.interceptors.request.use(
   function (config) {
+     config.headers.Authorization = `Bearer ${ls.get(
+      "__access-token"
+    )}`;
     return config;
   },
   function (error) {
