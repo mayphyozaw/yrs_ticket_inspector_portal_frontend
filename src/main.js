@@ -31,6 +31,7 @@ import {
   PasswordInput, 
   NumberKeyboard,
   Tag,
+  Notify
 } from "vant";
 
 import App from "./App.vue";
@@ -72,6 +73,7 @@ app.use(Form);
 app.use(PasswordInput);
 app.use(NumberKeyboard);
 app.use(Tag);
+app.use(Notify);
 
 app.use(router);
 
