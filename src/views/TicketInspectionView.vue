@@ -2,14 +2,11 @@
   <van-nav-bar title="Ticket Inspection" :fixed="true" />
   <div class="pt-[46px]"></div>
 
- 
+  <List :store-name="`ticketInspectionStore`" :query-parameters="{}" />
 </template>
 
 <script setup>
 import List from "@/components/List.vue";
-import { useRoute } from "vue-router";
-
-const route = useRoute();
 </script>
 
 <style scope></style>

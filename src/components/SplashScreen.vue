@@ -6,7 +6,7 @@
       class="w-14 h-14 mb-2"
     />
     <h3 class="text-gray-600 text-md">YRS</h3>
-    <p class="text-gray-500 text-xs">Yangon Railway Service</p>
+    <p class="text-gray-500 text-xs">Ticket Inspector Portal</p>
   </div>
 </template>
 

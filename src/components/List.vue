@@ -11,7 +11,7 @@
           type="primary"
           size="small"
           class="mb-1"
-          color="#1CBC9B"
+          color="#3c57b6"
           @click="onSearch"
           >Search</van-button
         >
@@ -36,8 +36,9 @@
           :error-text="errorMessage"
           @load="onLoad"
         >
-         
-          <RouteItem v-if="storeName == 'routeStore'" :list="list" :query-parameters="props.queryParameters"/>
+          
+          <TicketInspectionItem v-if="storeName == 'ticketInspectionStore'" :list="list" />
+          
         </van-list>
       </div>
     </van-pull-refresh>
@@ -47,11 +48,11 @@
 <script setup>
 import { ref } from "vue";
 import { usestoreHelper } from "@/helplers/useStoreHelper";
-import RouteItem from "./RouteItem.vue";
+import TicketInspectionItem from "./TicketInspectionItem.vue";
 
 const props = defineProps({
   storeName: { type: String, required: true },
-  queryParameters:{type: Object, required:true},
+  queryParameters: { type: Object, required: true },
 });
 
 const storeName = ref(props.storeName);

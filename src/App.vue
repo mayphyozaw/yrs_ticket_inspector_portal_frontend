@@ -6,9 +6,9 @@
     <RouterView />
     </div>
   
-    <van-tabbar v-if="showTabBar" v-model="active" active-color="#1CBC9B">
+    <van-tabbar v-if="showTabBar" v-model="active" active-color="#3c57b6">
       <van-tabbar-item icon="home-o" replace to="/">Home</van-tabbar-item>
-      <van-tabbar-item icon="list-switch" replace to="/route"
+      <van-tabbar-item icon="list-switch" replace to="/ticket-inspection"
         >Ticket Inspection</van-tabbar-item
       >
       
